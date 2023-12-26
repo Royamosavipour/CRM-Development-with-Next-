@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/Modal.module.css";
 import { useState } from "react";
+import swal from "sweetalert";
 
 const AddCourseModal = ({ hideAddCourseModal }) => {
   const [title, setTitle] = useState("");
@@ -23,6 +24,11 @@ const AddCourseModal = ({ hideAddCourseModal }) => {
       body: JSON.stringify({ title }),
     });
     if (res.status === 201) {
+      swal({
+        title: 'Course Create succesfully',
+        buttons: 'Ok',
+        icon:'success'
+      })
       console.log("course create successfully ");
       setTitle("");
     }
