@@ -11,10 +11,7 @@ const handler = async (req, res) => {
         return res.status(422).json({ message: "Title is not valid!" });
       }
       await courseMoudel.create({ title });
-        return res.status(201).json({ message: "course creat successfully" });
-        
-
-        
+      return res.status(201).json({ message: "course creat successfully" });
     } catch (error) {
       return res
         .status(500)
