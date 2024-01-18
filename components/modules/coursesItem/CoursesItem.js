@@ -3,6 +3,10 @@ import EditModal from "@/components/templates/index/EditModal";
 import { useState } from "react";
 import styles from "@/styles/Course.module.css";
 import swal from "sweetalert";
+
+
+
+
 const CoursesItem = ({ title, _id }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -24,7 +28,21 @@ const CoursesItem = ({ title, _id }) => {
         icon:'success'
   })
 }
+    const updateCourse = async ({title}) => {
+      const res = await fetch(`/api/courses/${_id}`, {
+        method: 'PUT',
+        headers:{"Content-Type":"aplication/json"},
+        body:JSON.stringify({title})
+      })
+      if (res.status===200) {
+        setShowEditModal(false)
+        swal({
+          title: 'Cours Success Update ',
+          buttons: 'OK',
+          icon:'success'
 
+      })
+}
 
 
   };
