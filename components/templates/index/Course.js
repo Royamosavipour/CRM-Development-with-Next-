@@ -12,13 +12,13 @@ const Course = ({ data }) => {
     <>
       <section className={styles.courses}>
         <div className={styles.courses_top}>
-          <h2 className={styles.courses_title}>دوره ها</h2>
+          <h2 className={styles.courses_title}> courses</h2>
           <a
             href="#"
             className={styles.new_course_btn}
             onClick={() => setShowAddCourseModal(true)}
           >
-            اضافه کردن دوره جدید
+            Add New Course
           </a>
         </div>
         <ul className={styles.courses_list}>

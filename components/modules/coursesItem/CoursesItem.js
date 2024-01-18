@@ -11,7 +11,9 @@ const CoursesItem = ({ title, _id }) => {
   const hideDeleteModal = () => setShowDeleteModal(false);
 
   const removeCourse = async () => {
-    const res = await fetch(`/api/courses/${_id}`);
+    const res = await fetch(`/api/courses/${_id}`, {
+      method:'DELETE'
+    });
     const data = await res.json();
 
     if (res.status === 200) {
@@ -45,7 +47,7 @@ const CoursesItem = ({ title, _id }) => {
             onClick={() => setShowEditModal(true)}
           >
             {" "}
-            ویرایش{" "}
+            Edit{" "}
           </a>
           <a
             href="#"
@@ -53,7 +55,7 @@ const CoursesItem = ({ title, _id }) => {
             onClick={() => setShowDeleteModal(true)}
           >
             {" "}
-            حذف{" "}
+            Delete{" "}
           </a>
         </div>
       </li>

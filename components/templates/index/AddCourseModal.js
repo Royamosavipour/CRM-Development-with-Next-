@@ -25,10 +25,10 @@ const AddCourseModal = ({ hideAddCourseModal }) => {
     });
     if (res.status === 201) {
       swal({
-        title: 'Course Create succesfully',
-        buttons: 'Ok',
-        icon:'success'
-      })
+        title: "Course Create succesfully",
+        buttons: "Ok",
+        icon: "success",
+      });
       console.log("course create successfully ");
       setTitle("");
     }
@@ -39,7 +39,7 @@ const AddCourseModal = ({ hideAddCourseModal }) => {
     <div className={styles.modal_container} id="add-new-course-modal">
       <div className={styles.modal_bg} onClick={hideAddCourseModal}></div>
       <div className={styles.modal_content}>
-        <h1 className={styles.modal_title}>Add Course   </h1>
+        <h1 className={styles.modal_title}>Add Course </h1>
         <form
           action="#"
           className={styles.edit_user_form}
@@ -58,7 +58,7 @@ const AddCourseModal = ({ hideAddCourseModal }) => {
             />
           </div>
           <button type="submit" className={styles.update_btn}>
-             Create Course
+            Create Course
           </button>
         </form>
       </div>
