@@ -4,9 +4,6 @@ import { useState } from "react";
 import styles from "@/styles/Course.module.css";
 import swal from "sweetalert";
 
-
-
-
 const CoursesItem = ({ title, _id }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -16,35 +13,36 @@ const CoursesItem = ({ title, _id }) => {
 
   const removeCourse = async () => {
     const res = await fetch(`/api/courses/${_id}`, {
-      method:'DELETE'
+      method: "DELETE",
     });
     const data = await res.json();
 
     if (res.status === 200) {
-      setShowDeleteModal(false)
+      setShowDeleteModal(false);
       swal({
-        title: 'Cours Success Delete',
-        buttons: 'OK',
-        icon:'success'
-  })
-}
-    const updateCourse = async ({title}) => {
-      const res = await fetch(`/api/courses/${_id}`, {
-        method: 'PUT',
-        headers:{"Content-Type":"aplication/json"},
-        body:JSON.stringify({title})
-      })
-      if (res.status===200) {
-        setShowEditModal(false)
-        swal({
-          title: 'Cours Success Update ',
-          buttons: 'OK',
-          icon:'success'
+        title: "Cours Success Delete",
+        buttons: "OK",
+        icon: "success",
+      });
+    }
+  };
 
-      })
-}
+  const updateCourse = async (event, title) => {
+    event.pereventDefault()
+    const res = await fetch(`/api/courses/${_id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title }),
+    });
 
-
+    if (res.status === 200) {
+      setShowEditModal(false);
+      swal({
+        title: "Cours Success Update",
+        buttons: "OK",
+        icon: "success",
+      });
+    }
   };
 
   return (
@@ -77,8 +75,15 @@ const CoursesItem = ({ title, _id }) => {
           </a>
         </div>
       </li>
-      {showEditModal && <EditModal hideEditModal={hideEditModal} />}
-      {showDeleteModal && <DeleteModal removeCourse={removeCourse} hideDeleteModal={hideDeleteModal} />}
+      {showEditModal && (
+        <EditModal updateCourse={updateCourse} hideEditModal={hideEditModal} />
+      )}
+      {showDeleteModal && (
+        <DeleteModal
+          removeCourse={removeCourse}
+          hideDeleteModal={hideDeleteModal}
+        />
+      )}
     </>
   );
 };

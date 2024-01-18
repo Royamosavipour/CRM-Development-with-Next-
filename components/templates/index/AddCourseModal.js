@@ -29,8 +29,8 @@ const AddCourseModal = ({ hideAddCourseModal }) => {
         buttons: "Ok",
         icon: "success",
       });
-      console.log("course create successfully ");
       setTitle("");
+      hideAddCourseModal(false)
     }
     const data = await res.json();
   };

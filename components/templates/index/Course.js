@@ -5,7 +5,6 @@ import styles from "@/styles/Course.module.css";
 
 const Course = ({ data }) => {
   const [showAddCourseModal, setShowAddCourseModal] = useState(false);
-
   const hideAddCourseModal = () => setShowAddCourseModal(false);
 
   return (
