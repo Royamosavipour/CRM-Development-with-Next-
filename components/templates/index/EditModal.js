@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/Modal.module.css";
 
-const EditModal = ({ hideEditModal, updateCourse }) => {
+const EditModal = ({ hideEditModal, updateCourse } ) => {
   const [title, setTitle] = useState("");
 
   return (

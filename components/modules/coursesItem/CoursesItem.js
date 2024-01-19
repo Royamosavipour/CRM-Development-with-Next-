@@ -28,12 +28,15 @@ const CoursesItem = ({ title, _id }) => {
   };
 
   const updateCourse = async (event, title) => {
-    event.pereventDefault()
+    console.log('test')
+    event.preventDefault()
     const res = await fetch(`/api/courses/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title }),
     });
+
+
 
     if (res.status === 200) {
       setShowEditModal(false);
@@ -43,6 +46,11 @@ const CoursesItem = ({ title, _id }) => {
         icon: "success",
       });
     }
+
+    
+
+    
+
   };
 
   return (
