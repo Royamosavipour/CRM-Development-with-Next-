@@ -4,7 +4,13 @@ import courseMoudel from "@/models/course";
 const handler = async (req, res) => {
   connectetToDB();
 
-  if (req.method === "POST") {
+  if (res.method === "GET") {
+    const courses = await courseMoudel.find({});
+    return res.json(courses);
+
+
+    
+  } else if (req.method === "POST") {
     try {
       const { title } = req.body;
       if (!title.trim() || title.length < 2) {
