@@ -10,7 +10,6 @@ export async function getStaticProps(context) {
   connectetToDB();
   const courses = await coursModel.find({});
 
-  console.log(courses);
 
   return {
     props: {
